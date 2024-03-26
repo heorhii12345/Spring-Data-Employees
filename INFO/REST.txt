@@ -1,0 +1,101 @@
+
+REST API Employee
+---------------------
+
+Postman to test REST API:
+https://www.postman.com/
+
+1) Get all data:
+GET
+http://localhost:8080/api/v1/employees
+
+2) Creation of data:
+POST
+http://localhost:8080/api/v1/employees
+
+Settings in Postman: Body, raw, JSON.
+We prescribe each request separately.
+ATTENTION. For keys, do not use "first_name", but use "firstName".
+Otherwise there will be an error where "first_name" is null.
+
+(1)
+{
+	"firstName": "Alice",
+	"lastName": "Green",
+	"email": "alice@mail.com"
+}
+
+(2)
+{
+	"firstName": "John",
+	"lastName": "Star",
+	"email": "j.star@mail.com"
+}
+
+(3)
+{
+	"firstName": "Robert",
+	"lastName": "Man",
+	"email": "rob@mail.com"
+}
+
+(4)
+{
+	"firstName": "Erika",
+	"lastName": "Sunny",
+	"email": "erika@mail.com"
+}
+
+(5)
+{
+	"firstName": "Alice",
+	"lastName": "Sunny",
+	"email": "asunny@mail.com"
+}
+
+
+3) Get data by id:
+GET
+http://localhost:8080/api/v1/employees/2
+
+
+4) REST-Request to update data by id:
+PUT
+http://localhost:8080/api/v1/employees/4
+
+Settings in Postman: Body, raw, JSON.
+{
+	"lastName": "Moon",
+	"email": "moon@mail.com"
+}
+
+PUT
+http://localhost:8080/api/v1/employees/2
+
+Settings in Postman: Body, raw, JSON.
+{
+	"email": "johnny@mail.com"
+}
+
+
+5) Get data by firstName:
+GET
+http://localhost:8080/api/v1/employees/first-name/Alice
+http://localhost:8080/api/v1/employees/first-name/John
+Відсутнє
+http://localhost:8080/api/v1/employees/first-name/Sam
+
+
+6) Get data by lastName:
+GET
+http://localhost:8080/api/v1/employees/last-name/Man
+http://localhost:8080/api/v1/employees/last-name/Sunny
+Absent:
+http://localhost:8080/api/v1/employees/last-name/Wolf
+
+
+
+7) Deletion of data by id:
+DELETE
+http://localhost:8080/api/v1/employees/4
+
